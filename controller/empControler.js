@@ -24,9 +24,9 @@ exports.add =(upload.single('avatar')), (req, res) =>{
         	        firstname: req.body.firstname,
         	        lastname: req.body.lastname,
         	        email: req.body.email,
-                    age: req.body.age,
-                    salary: req.body.salary,
-                    profile: req.file.filename
+                  age: req.body.age,
+                  salary: req.body.salary,
+                  profile: req.file.filename
         	    });
         	    // save new user in db
                 user.save().then((docs)=>{

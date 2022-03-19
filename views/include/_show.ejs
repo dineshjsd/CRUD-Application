@@ -1,31 +1,20 @@
-<table class="table">
-    <thead>
+      <% for(var i = 0; i< user.length; i++) { %>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">First Name</th>
-        <th scope="col">Last Name</th>
-        <th scope="col">Age</th>
-        <th scope="col">Salary</th>
-        <th scope="col">Profile Photo</th>
-        <th scope="col">Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>23</td>
-        <td>2000000</td>
-        <td><img src="" alt=""></td>
-        <td>
-            <a href="/update-user/" class="btn border-shadow update">
+        <td scope="col"><%= i + 1 %></td>
+        <td scope="col"><%= user[i].firstname %></td>
+        <td scope="col"><%= user[i].lastname %></td>
+        <td scope="col"><%= user[i].age %></td>
+        <td scope="col"><%= user[i].salary %></td>
+        <td scope="col">
+          <img src="/public/<%= user[i].profile %>" alt="profile" width="50px" height="50px">
+        </td>
+        <td scopre="col">
+            <a href="/update-emp/<%= user[i]._id %>" class="btn border-shadow update">
                 <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
             </a>
-            <a class="btn border-shadow delete" data-id="" >
+            <a class="btn border-shadow delete" href="/delete/<%= user[i]._id %>" data-id = <%= user[i]._id %> >
                 <span class="text-gradient"><i class="fas fa-times"></i></span>
             </a>
         </td>
       </tr>
-    </tbody>
-  </table>
+  <% } %>
