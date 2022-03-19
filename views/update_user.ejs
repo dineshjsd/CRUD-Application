@@ -1,0 +1,45 @@
+<%- include('include/_header') %>
+
+<main class="container">
+    <div class="flex">
+        <a href="/">
+            <i class="fas fa-angle-double-left"></i> 
+            All Users
+        </a>
+    </div>
+
+    <div class="text-center">
+        <h1>Use the Below form to update an Employee Details</h1>
+    </div>
+
+    <form  class="form-group" method="post" enctype="multipart/form-data" >
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Dinesh">
+            <label for="firstname">First Name</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="lasttname" name="lastname" placeholder="Dinesh">
+            <label for="lasttname">Last Name</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="number" class="form-control" id="age" name="age" placeholder="Dinesh">
+            <label for="age">Age</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="number" class="form-control" id="salary" name="salary" placeholder="Jsdc">
+            <label for="salary">Salary</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+            <label for="email">Email address</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="file" class="form-control" id="profile" name="avatar" >
+        </div>
+    
+        <input type="submit" class="btn btn-primary" value="Submit">
+    </form>
+</main>
+
+</body>
+</html>
