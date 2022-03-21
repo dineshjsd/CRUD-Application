@@ -1,8 +1,8 @@
 <%- include('include/_header.ejs') %>
 
-<main>
+<main class="container m-5">
     <div class="flex">
-        <a href="/add-user" class="border-shadow">
+        <a href="/add-user" class="btn btn-primary text-decoration-none">
             <span class="text-gradient">New User 
                 <i class="fas fa-user"></i>
             </span>
@@ -10,15 +10,16 @@
     </div>
 
     <form action="/" method="POST">
-        <table class="table">
-            <thead>
+        <table class="table table-hover mt-5 width=100%">
+            <thead class="table-dark">
               <tr>
                 <th scope="col">#</th>
+                <th scope="col">Profile Photo</th>
                 <th scope="col">First Name</th>
                 <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
                 <th scope="col">Age</th>
                 <th scope="col">Salary</th>
-                <th scope="col">Profile Photo</th>
                 <th scope="col">Action</th>
               </tr>
             </thead>

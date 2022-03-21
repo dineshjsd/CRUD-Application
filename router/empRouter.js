@@ -2,6 +2,9 @@ const express =  require('express');
 const route = express.Router();
 const Emp = require('../model/Employee');
 const multer = require('multer');
+const bodyParser = require('body-parser');
+const app = express();
+app.use(bodyParser.urlencoded({extended:true}));
 
 
 // File upload
@@ -17,7 +20,7 @@ const storage = multer.diskStorage({
 const upload = multer({storage:storage});
 
 // Add Employee 
-route.post("/add/Emp",(upload.single('avatar')), (req, res) =>{
+route.post("/add/Emp",(upload.single('profile')), (req, res) =>{
     if(!req.body){
         res.status(400).send({message: 'Content can not be empty!'});
         return;
@@ -27,9 +30,9 @@ route.post("/add/Emp",(upload.single('avatar')), (req, res) =>{
         	        firstname: req.body.firstname,
         	        lastname: req.body.lastname,
         	        email: req.body.email,
-                    age: req.body.age,
-                    salary: req.body.salary,
-                    profile: req.file.filename
+                  age: req.body.age,
+                  salary: req.body.salary,
+                  profile: req.file.filename
         	    });
         	    // save new user in db
                 user.save().then((docs)=>{
@@ -49,24 +52,21 @@ route.post("/add/Emp",(upload.single('avatar')), (req, res) =>{
 });
 
 // GET single Employee by id
-route.get('update-emp/:id', (req, res) =>{
+route.get('/update-emp/:id', (req, res) =>{
     console.log(req.params.id);
     Emp.findById(req.params.id, (err, data) => {
       if (err) {
         console.log(err);
       } else {
-        console.log(data);
         console.log("single Employee get");
-
-        res.render('update_user', {emp : data});
+        res.render('update_user', {data});
       }
     });
-    console.log('hi')
 });
 
 // Update Employee
-route.post('/update-user/:id', (req, res) => {
-    Emp.findByIdAndUpdate(req.params.id, req.body, function (err, data) {
+route.post('/update-emp/:id', (req, res) => {
+   Emp.findByIdAndUpdate({_id:req.params.id}, req.body,  function (err, data) {
       if(err){
        
         res.redirect('update-user/'+req.params.id);
@@ -74,6 +74,7 @@ route.post('/update-user/:id', (req, res) => {
     } else {
       console.log(data);
       res.redirect('/');
+      
     }
     });
 });

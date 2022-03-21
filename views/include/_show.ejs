@@ -1,15 +1,17 @@
       <% for(var i = 0; i< user.length; i++) { %>
       <tr>
         <td scope="col"><%= i + 1 %></td>
-        <td scope="col"><%= user[i].firstname %></td>
-        <td scope="col"><%= user[i].lastname %></td>
-        <td scope="col"><%= user[i].age %></td>
-        <td scope="col"><%= user[i].salary %></td>
         <td scope="col">
           <img src="/public/<%= user[i].profile %>" alt="profile" width="50px" height="50px">
         </td>
+        <td scope="col"><%= user[i].firstname %></td>
+        <td scope="col"><%= user[i].lastname %></td>
+        <td scope="col"><%= user[i].email %></td>
+        <td scope="col"><%= user[i].age %></td>
+        <td scope="col"><%= user[i].salary %></td>
+       
         <td scopre="col">
-            <a href="/update-emp/<%= user[i]._id %>" class="btn border-shadow update">
+            <a href="update-emp/<%= user[i]._id %>" class="btn border-shadow update">
                 <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
             </a>
             <a class="btn border-shadow delete" href="/delete/<%= user[i]._id %>" data-id = <%= user[i]._id %> >
