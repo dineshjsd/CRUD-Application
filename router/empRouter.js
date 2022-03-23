@@ -37,7 +37,7 @@ route.post("/add/Emp",(upload.single('profile')), (req, res) =>{
         	    // save new user in db
                 user.save().then((docs)=>{
                       console.log(docs);
-                      return res.status(200).redirect('/add-user');
+                      return res.status(200).redirect('/');
                     
                      
                   })

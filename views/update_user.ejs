@@ -12,7 +12,7 @@
         <h1>Use the Below form to update an Employee Details</h1>
     </div>
 
-    <form   method="post" class="form-group"  >
+    <form   method="post" class="form-group"  onsubmit="alert('Record updated')">
       
         <div class="form-floating mb-3">
             <input type="text" class="form-control" id="firstname" name="firstname" value="<%= data.firstname %>" >
@@ -36,7 +36,7 @@
         </div>
        
     
-        <input type="submit" class="btn btn-primary" value="Update">
+        <input type="submit" class="btn btn-primary" value="Update" >
     </form>
 </main>
 
